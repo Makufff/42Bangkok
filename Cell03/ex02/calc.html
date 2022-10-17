@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script>
+        function kidookleaw (){
+            let number1 = document.getElementById("Num_1").value;
+            let number2 = document.getElementById("Num_2").value;
+            let operator = document.getElementById("Oprator").value;
+            if (operator == "Choose") alert("Please select and operator") ;
+            else if (OnlyNumbers(number1) && OnlyNumbers(number2)){
+                if (parseInt(number1) < 0 || parseInt(number2) < 0) alert("Error :(") ;
+                else if ((operator == "%" || operator == "/")&& number2 == 0) alert("It's over 9000!")
+                else{
+                    // console.log(OnlyNumbers(number1));
+                    alert(eval(number1 + operator + number2));
+                }         
+            }else alert("Error :(")
+        }
+        function OnlyNumbers(str) { //chk number function ;
+             return /^[0-9]+$/.test(str);
+        }
+        function greeting(){
+            alert("please use me...");
+        }
+
+        setTimeout(greeting, 30000);
+    </script>
+</head>
+<body>
+    <div>
+        <input id="Num_1"/>
+        <form>
+            <select id="Oprator">
+                <option value="Choose">Choose</option>
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+                <option value="%">%</option>
+            </select>
+        </form>
+        <input id="Num_2"/>
+        <input type="submit"value="Try me!"onclick="kidookleaw()"/>
+    </div>
+</body>
+</html>

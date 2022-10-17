@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0 ;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .ballon {
+            width : 200px;
+            height : 200px;
+            border-radius: 50%;
+            background-color: red;
+            
+        }
+    </style>
+    <script>
+        function change_color(e){
+            if(e.style.backgroundColor == "red") e.style.backgroundColor = "green" ;
+            else if (e.style.backgroundColor == "green") e.style.backgroundColor = "blue" ;
+            else e.style.backgroundColor = "red" ; 
+        }
+        function inv_color(e){
+            if(e.style.backgroundColor == "blue") e.style.backgroundColor = "green" ;
+            else if (e.style.backgroundColor == "green") e.style.backgroundColor = "red" ;
+            else e.style.backgroundColor = "blue" ; 
+        }
+        function main(e){
+            change_color(e);
+            if (e.offsetWidth < "420"){
+                e.style.width = (e.offsetWidth + 10) + "px";
+                e.style.height = (e.offsetHeight + 10) + "px";
+                console.log(e.style.width);
+            }
+            else {
+                // console.log("boom");
+                e.style.width = "200px";
+                e.style.height = "200px";
+                console.log("reset");
+                console.log(e.style.width);
+            }
+        }
+        function fab (e){
+            if(e.offsetWidth > "200"){
+                inv_color(e);
+                e.style.width = (e.offsetWidth - 5) + "px";
+                e.style.height = (e.offsetHeight - 5) + "px";
+                console.log(e.style.width);
+            }
+            // else console.log("Easy");
+        }
+
+    </script>
+</head>
+<body>
+    <div style = "transform:translate(-50%,-50%)">
+        <div class="ballon" onclick="main(this)" onmouseleave="fab(this)"></div>
+    </div>
+</body>
+</html>

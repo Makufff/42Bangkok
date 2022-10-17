@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculate</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+
+        // function kidookleaw (){
+        //     let number1 = document.getElementById("Num_1").value;
+        //     let number2 = document.getElementById("Num_2").value;
+        //     let operator = document.getElementById("Oprator").value;
+        //     if (operator == "Choose") alert("Please select and operator") ;
+        //     else if (OnlyNumbers(number1) && OnlyNumbers(number2)){
+        //         if (parseInt(number1) < 0 || parseInt(number2) < 0) alert("Error :(") ;
+        //         else if ((operator == "%" || operator == "/")&& number2 == 0) alert("It's over 9000!")
+        //         // else if (typeof(number1) === 'string' || typeof(number2) === 'string' || number1 instanceof String || number2 instanceof String ) alert("Error :(") ;
+        //         else{
+        //             // console.log(OnlyNumbers(number1));
+        //             alert(eval(number1 + operator + number2));
+        //         }         
+        //     }else alert("Error :(")
+        // }
+
+        // function OnlyNumbers(str) { //chk number function ;
+        //      return /^[0-9]+$/.test(str);
+        // }
+        // function greeting(){
+        //     alert("please use me...");
+        // }
+
+        // setTimeout(greeting, 30000);
+        
+            $(document).ready(function() {
+                $('#calculate').click(function() {
+                    if($("#operator").val() == 'Choose') alert("Please select and operator");
+                    else if(parseInt($("#num1").val()) < 0 || parseInt($("#num2").val()) < 0 || isNaN(parseInt($("#num1").val())) || isNaN(parseInt($("#num2").val()))) alert("Error :(");
+                    else if ($("#num1").val() < 0 || $("#num2").val() < 0) alert("Error :(");
+                    else if (($('#operator').val() == '%' || $('#operator').val() == '/') && $('#num2').val() == 0) alert("It's over 9000!");
+                    else
+                    {
+                        var res = eval($('#num1').val() + $('#operator').val() + $('#num2').val());
+                        alert(res);
+                    }
+                })
+            })
+
+            setTimeout(needy, 30000);
+            function needy(){
+                alert("Please, use me...");
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <h2>Calculate</h2>
+            <input type="text" id="num1"/>
+            <div>
+                <form>
+                    <select id="operator">
+                        <option value="Choose">Choose</option>
+                        <option value="+">+</option>
+                        <option value="-">-</option>
+                        <option value="*">*</option>
+                        <option value="/">/</option>
+                        <option value="%">%</option>
+                    </select>
+                </form>
+            </div>
+            <input type="text" id="num2" /><br>
+            <input id="calculate" type="submit" value="Try Me!">
+            <p id="result"></p>
+        </div>
+    </body>
+
+</html>

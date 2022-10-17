@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="background.css">
+    <!-- <script src="background.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                let hex = '1234567890ABCDEF' ; 
+                let code_color = '#' ;
+                let i = 6 ; 
+                while (i--) code_color += hex[Math.floor(Math.random() * 16)] ; 
+                $("body").css("background-color",code_color)
+            })
+        });
+    </script>
+</head>
+<body>
+    <button class="button">กดกูคับ</button>
+</body>
+</html>
